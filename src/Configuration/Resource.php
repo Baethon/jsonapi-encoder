@@ -16,6 +16,11 @@ class Resource
      */
     protected $name;
 
+    /**
+     * @var Attribute[]
+     */
+    protected $attributes = [];
+
     public function __construct(string $className, string $name)
     {
         $this->className = $className;
@@ -30,5 +35,15 @@ class Resource
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function addAttribute(Attribute $attribute)
+    {
+        $this->attributes[] = $attribute;
+    }
+
+    public function getAttributes(): array
+    {
+        return $this->attributes;
     }
 }

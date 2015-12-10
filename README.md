@@ -23,7 +23,7 @@ class User
      * By default any attribute with @Field annotation can be encoded or decoded
      *
      * @JsonApi\Id
-     * @JsonApi\Field if none type is set value from @var will be used
+     * @JsonApi\Attribute if none type is set value from @var will be used
      * @var string
      */
     private $id;
@@ -31,7 +31,7 @@ class User
     /**
      * This field can be only decoded
      *
-     * @JsonApi\Field(type="password") custom types should be registered
+     * @JsonApi\Attribute(type="password") custom types should be registered
      * @JsonApi\Decode
      * @var string
      */
@@ -40,7 +40,7 @@ class User
     /**
      * This field will be returned by the API, but cannot be set based on request data
      *
-     * @JsonApi\Field(type="date", format=DATE_ATOM) any further arguments from @Field annotation will be passed to
+     * @JsonApi\Attribute(type="date", format=DATE_ATOM) any further arguments from @Field annotation will be passed to
      *                                               the encode()/decode() method of type declaration class
      * @JsonApi\Encode
      * @var \DateTime
@@ -48,13 +48,13 @@ class User
     private $createdAt;
     
     /**
-     * @JsonApi\Collection(type="comment")
+     * @JsonApi\Collection(name="comment")
      * @var Comment[]
      */
     private $comments;
     
     /**
-     * @JsonApi\Item(type="address")
+     * @JsonApi\Item(name="address")
      * @var Address
      */
      private $address;
