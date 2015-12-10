@@ -16,6 +16,11 @@
             "Baethon\\JsonApi\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "stubs\\": "stubs"
+        }
+    },
     "require-dev": {
         "phpunit/phpunit": "^5.1"
     }
