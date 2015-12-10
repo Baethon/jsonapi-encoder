@@ -2,15 +2,12 @@ language: php
 
 php:
   - 7.0
-  - hhvm
 
 env:
   global:
     - setup=basic
 
 matrix:
-  allow_failures:
-    - php: hhvm
   include:
     - php: 7.0
       env: setup=lowest
