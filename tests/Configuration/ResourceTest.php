@@ -31,9 +31,12 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
     /** @test **/
     public function it_can_have_multiple_attributes()
     {
+        $mockBuilder = $this->getMockBuilder(Attribute::class)
+            ->disableOriginalConstructor();
+
         $attributes = [
-            $this->prophesize(Attribute::class)->reveal(),
-            $this->prophesize(Attribute::class)->reveal(),
+            $mockBuilder->getMock(),
+            $mockBuilder->getMock(),
         ];
 
         array_walk($attributes, [$this->resource, 'addAttribute']);
