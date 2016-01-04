@@ -48,4 +48,14 @@ class AttributeTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->attribute->canBeEncoded());
         $this->assertTrue($this->attribute->canBeDecoded());
     }
+
+    /** @test */
+    public function it_has_options()
+    {
+        $attribute = new Attribute('name', 'string', $options = [
+            'foo' => 'bar',
+        ]);
+
+        $this->assertEquals($options, $attribute->getOptions());
+    }
 }

@@ -26,10 +26,16 @@ class Attribute
      */
     protected $decode = true;
 
-    public function __construct(string $name, string $type)
+    /**
+     * @var array
+     */
+    private $options;
+
+    public function __construct(string $name, string $type, array $options = [])
     {
         $this->name = $name;
         $this->type = $type;
+        $this->options = $options;
     }
 
     public function getName(): string
@@ -60,5 +66,10 @@ class Attribute
     public function canBeDecoded(): bool
     {
         return $this->decode;
+    }
+
+    public function getOptions(): array
+    {
+        return $this->options;
     }
 }
